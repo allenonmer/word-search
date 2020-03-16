@@ -1,0 +1,424 @@
+﻿* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  font-size: 11px;
+  text-transform: uppercase;
+  font-family: arial,sans-serif;
+}
+
+.contentWrapper {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+  position: fixed;
+  animation-name: metro;
+  animation-duration: 1000ms;
+  animation-timing-function: ease-out;
+}
+
+.contentWrapper.show {
+  display: flex;
+}
+
+.whiteWrapper {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  display: none;
+  position: fixed;
+  background-color: rgba(255,255,255,0.7);
+}
+
+.whiteWrapper.show {
+  display: flex;
+}
+
+.globalBox {
+  width: 100%;
+  margin: auto;
+  max-width: 500px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 0 5px #828282;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.globalBox h1 {
+  height: 48px;
+  color: #efefef;
+  overflow: hidden;
+  word-spacing: 3px;
+  line-height: 42px;
+  text-align: center;
+  pointer-events: none;
+  background-color: #555;
+  vertical-align: middle;
+  border-top: solid 3px transparent;
+  border-bottom: 3px solid rgba(0,0,0,0.1);
+}
+
+.globalBox p {
+  color: #555;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.globalTable {
+  width: 100%;
+  margin: auto;
+  max-width: 500px;
+}
+
+.globalTable th {
+  height: 48px;
+  color: #efefef;
+  cursor: default;
+  word-spacing: 3px;
+  text-align: center;
+  pointer-events: none;
+  vertical-align: middle;
+  background-color: #555;
+}
+
+.globalTable td {
+  padding: 15px 5px;
+  background-color: #fff;
+  border: 1px solid #c5c8cd;
+}
+
+.globalTable th:last-of-type {border-top-left-radius: 5px}
+.globalTable th:first-of-type {border-top-right-radius: 5px}
+
+.actionButton {
+  color: #fff;
+  width: 100%;
+  height: 48px;
+  display: block;
+  cursor: pointer;
+  overflow: hidden;
+  line-height: 48px;
+  text-align: center;
+  background-color: #684390;
+}
+
+.purpleButton:hover {background-color: #794ea8}
+.purpleButton:active {background-color: #6a4394}
+.greenButton {background-color: #779523}
+.greenButton:hover {background-color: #86a72a}
+.greenButton:active {background-color: #6d891e}
+.blueButton {background-color: #0063a6}
+.blueButton:hover {background-color: #016fb9}
+.blueButton:active {background-color: #015b97}
+.redButton {background-color: #d13438}
+.redButton:hover {background-color: #e0393d}
+.redButton:active {background-color: #c73135}
+.greyButton {background-color: #555555}
+.greyButton:hover {background-color: #555555}
+.transparentButton {background-color: transparent}
+.transparentButton:hover {background-color: transparent}
+
+.gridStyle {
+  display: flex;
+  cursor: pointer;
+  overflow: hidden;
+  max-height: 500px;
+  position: relative;
+  touch-action: none;
+  flex-direction: column;
+  background-color: #fff;
+  height: 100vw !important;
+}
+
+.gridStyle > div {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+.gridStyle > div > span {
+  flex: 1;
+  color: #555;
+  display: flex;
+  font-size: 14px;
+  align-items: center;
+  font-family: monospace;
+  justify-content: center;
+}
+
+.loader {
+  width: 80px;
+  height: 80px;
+  margin: auto;
+  border-radius: 50%;
+  border: 10px solid transparent;
+  border-top: 10px solid #016fb9;
+  animation: spin 1.4s linear infinite;
+}
+
+.marker {
+  width: 32px;
+  z-index: 10;
+  opacity: 0.5;
+  height: 32px;
+  overflow: hidden;
+  position: absolute;
+  border-radius: 90px;
+  pointer-events: none;
+  background-color: rgb(139, 75, 208);
+}
+
+.toolbar {
+	top: 0;
+  right: 0;
+	border: 0;
+	margin: 0;
+	padding: 0;
+	z-index: 11;
+	display: block;
+	text-align: right;
+  position: absolute;
+	background-color: transparent;
+}
+
+.toolbar div {
+	padding: 0;
+	width: 32px;
+	height: 32px;
+	cursor: pointer;
+	line-height: 32px;
+	text-align: center;
+	background-color: transparent;
+}
+
+.toolbar div svg {
+	fill: #777777;
+	pointer-events: none;
+	vertical-align: middle;
+}
+
+html[context="webapp"] .toolbar {
+  display: none;
+}
+
+#globalContentWrapper {
+  height: 100%;
+  background-image: linear-gradient(45deg, rgba(0,0,0,0.03), #fff);
+  background-size: 12px 12px;
+}
+
+#gridWrapper.easy >div:not(.easy),
+#gridWrapper.easy>div >span:not(.easy) {
+  display: none;
+}
+
+#gridWrapper.normal >div:not(.normal),
+#gridWrapper.normal>div >span:not(.normal) {
+  display: none;
+}
+
+#gridWrapper .marker {
+  border: solid 10px #fff;
+  display: block !important;
+}
+
+#bestScoreWrapper #bestScoreBox td span {
+  color: #555;
+}
+
+#bestScoreWrapper #bestScoreBox td span[id*='.label.'] {
+  font-size: 12px;
+  font-family: monospace;
+}
+
+#bestScoreWrapper #bestScoreBox td:last-of-type {
+  padding: 10px;
+  text-align: center;
+}
+
+#bestScoreWrapper #bestScoreBox tr:last-child span {
+  color: #fff;
+}
+
+#categoryBox {
+  color: #fff;
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+}
+
+#categoryBox p {
+  cursor: pointer;
+  background-color: #fff;
+}
+
+#categoryBox p:hover span {
+  opacity: 0.9;
+}
+
+#categoryBox p> span {
+  color: #fff;
+  border: none;
+  text-align: center;
+  vertical-align: middle;
+  transition: 300ms ease all;
+}
+
+#categoryBox p:nth-of-type(1) span {background-color: #684390}
+#categoryBox p:nth-of-type(2) span {background-color: darkcyan}
+#categoryBox p:nth-of-type(3) span {background-color: #779523}
+#categoryBox p:nth-of-type(4) span {background-color: darkslategrey}
+#categoryBox p:nth-of-type(5) span {background-color: #0063a6}
+#categoryBox p:nth-of-type(6) span {background-color: darkgoldenrod}
+#categoryBox p:nth-of-type(7) span {background-color: darkred}
+#categoryBox p:nth-of-type(8) span {background-color: darkslateblue}
+#categoryBox p:nth-of-type(9) span {background-color: darkred}
+
+#wordSearchWrapper #wordSearchBox footer {
+  height: 52px;
+  display: flex;
+  padding: 0 5px;
+  margin-top: 5px;
+  align-items: center;
+  flex-flow: row nowrap;
+  border: 1px solid #ccc;
+  justify-content: space-around;
+  border-right: 0;
+  border-left: 0;
+}
+
+#wordSearchWrapper #wordSearchBox footer span {
+  cursor: pointer;
+}
+
+#wordSearchWrapper #wordSearchBox footer .actionButton {
+  height: 38px;
+  margin: 0 5px;
+  max-width: 120px;
+  line-height: 38px;
+}
+
+#wordSearchBox h1 {
+  display: flex;
+  font-size: 12px;
+  margin-bottom: 5px;
+  align-items: center;
+  flex-flow: row nowrap;
+  font-family: monospace;
+  justify-content: space-around;
+}
+
+#wordSearchBox h1 svg {
+  fill: #fff;
+  vertical-align: sub;
+}
+
+#wordSearchBox .mainInnerBox {
+  position: relative;
+}
+
+#wordSearchBox .mainInnerBox aside {
+  top: 0;
+  z-index: 11;
+  left: -200px;
+  width: 200px;
+  height: 100%;
+  position: absolute;
+  background-color: #555555;
+  transition: all 1s ease-in-out;
+  border-right: 1px solid #cecece;
+}
+
+#wordSearchBox .mainInnerBox aside.show {
+  transform: translate(200px, 0);
+}
+
+#wordSearchBox .mainInnerBox aside.hide {
+  transform: translate(0, 0);
+}
+
+#wordSearchBox .mainInnerBox aside ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#wordSearchBox .mainInnerBox aside ul li {
+  color: #fff;
+  padding: 10px;
+  border-bottom: 1px dashed #bbb;
+}
+
+#wordSearchBox .mainInnerBox aside ul li.correctCheck {
+  color: #6da200;
+  text-decoration: line-through;
+}
+
+#btnWords[flash] {
+  animation-name: flash;
+  animation-duration: 1000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes flash {
+  0% {
+    background-color: #999999;
+  }
+  100% {
+    background-color: #555555;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  };
+}
+
+@keyframes metro {
+  from {
+    opacity: 0;
+    padding-right: 100px;
+  }
+  to {
+    opacity: 1;
+    padding-left: 5px;
+  };
+}
+
+@media (max-width: 500px) {
+  .globalBox {
+    border-radius: 0;
+    box-shadow: none;
+  }
+  #wordSearchWrapper #wordSearchBox footer .actionButton {
+    margin: 0 1px;
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 250px) {
+  .globalBox h1 {
+    word-spacing: 0;
+  }
+  .gridStyle > div > span {
+    font-size: 12px;
+  }
+  #gridWrapper .marker {
+    border: solid 3px #fff;
+  }
+}
