@@ -89,7 +89,8 @@ var config = {
   },
   "reset": {
     "marker": function () {
-      flag = false;
+      mouse.listener.flag = false;
+      touch.listener.flag = false;
       /*  */
       config.cell.last.row = undefined;
       config.cell.last.cell = undefined;

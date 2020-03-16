@@ -12,8 +12,8 @@ var mouse = {
       config.cell.end = {'row': e.target.getAttribute('data-row'), 'cell': e.target.getAttribute('data-cell')};
       var result = config.global.engine.processwordcorrection(mouse.degree, config.cell.start, config.cell.end);
       /*  */
-      config.reset.marker();
       config.post.processing(result);
+      config.reset.marker();
     },
     "down": function (e) {
       mouse.span = config.button.wrapper.getElementsByTagName('span')[0];
