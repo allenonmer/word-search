@@ -5,7 +5,7 @@
   "permissions": ["storage"],
   "short_name": "word-search",
   "name": "Word Search Puzzle",
-  "background": {"scripts": ["background.js"]},
+  "background": {"scripts": ["lib/background.js"]},
   "homepage_url": "https://mybrowseraddon.com/word-search.html",
   "description": "Challenge your lexicon by discovering the hidden words in the word search puzzle game.",
   "browser_action": {
