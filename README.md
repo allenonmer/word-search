@@ -5,7 +5,7 @@ You can install this app as a PWA on your mobile device, moreover, it is availab
 Chrome: https://chrome.google.com/webstore/detail/word-search-puzzle/mdbofnnidoaobeabofcldmfbmnphbddp  
 Firefox: https://addons.mozilla.org/en-US/firefox/addon/word-search-puzzle/  
 Opera: https://addons.opera.com/en/extensions/details/word-search-puzzle/  
-Webapp & PWA:  
+Webapp & PWA: https://webbrowsertools.com/word-search/  
 
 ---------------------------------------------------------------
 
