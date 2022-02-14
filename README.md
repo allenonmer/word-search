@@ -3,6 +3,7 @@ Word Search Puzzle is a fun and easy-to-use puzzle game built based on web techn
 You can install this app as a PWA on your mobile device, moreover, it is available as a browser extension as-well-as a web application:
 
 Chrome: https://chrome.google.com/webstore/detail/word-search-puzzle/mdbofnnidoaobeabofcldmfbmnphbddp  
+Edge: https://microsoftedge.microsoft.com/addons/detail/word-search-puzzle/opiioinflikopdiamemkmcmpmnoakdbi  
 Firefox: https://addons.mozilla.org/en-US/firefox/addon/word-search-puzzle/  
 Opera: https://addons.opera.com/en/extensions/details/word-search-puzzle/  
 Webapp & PWA: https://webbrowsertools.com/word-search/  
