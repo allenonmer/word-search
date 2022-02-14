@@ -1,10 +1,13 @@
 var mouse = {
   "div": null,
+  "span": null,
   "width": null,
   "degree": null,
   "height": null,
-  "fixed": {"width": null, "angle": null},
-  "span": config.button.wrapper.getElementsByTagName('span')[0],
+  "fixed": {
+    "width": null, 
+    "angle": null
+  },
   "listener": {
     "flag": false,
     "tmp": {"item": {"counter": 0}},
@@ -170,7 +173,3 @@ var mouse = {
     }
   }
 };
-
-config.button.wrapper.addEventListener('mouseup', mouse.listener.up);
-config.button.wrapper.addEventListener('mousedown', mouse.listener.down);
-config.button.wrapper.addEventListener('mousemove', mouse.listener.move);

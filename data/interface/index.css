@@ -58,6 +58,7 @@ body {
 .globalBox h1 {
   height: 48px;
   color: #efefef;
+  font-size: 14px;
   overflow: hidden;
   word-spacing: 3px;
   line-height: 42px;
@@ -194,10 +195,10 @@ body {
 
 .toolbar div {
 	padding: 0;
-	width: 32px;
-	height: 32px;
+	width: 42px;
+	height: 42px;
 	cursor: pointer;
-	line-height: 32px;
+	line-height: 42px;
 	text-align: center;
 	background-color: transparent;
 }
@@ -421,4 +422,8 @@ html[context="webapp"] .toolbar {
   #gridWrapper .marker {
     border: solid 3px #fff;
   }
+}
+
+html[context="webapp"] .toolbar {
+  display: none;
 }

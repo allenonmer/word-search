@@ -1,6 +1,8 @@
 var core = {
-  "selected": {"words": []},
   "alphebet": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+  "selected": {
+    "words": []
+  },
   "not": {
     "insert": {
       "text": {

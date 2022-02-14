@@ -1,10 +1,13 @@
 var touch = {
   "div": null,
+  "span": null,
   "width": null,
   "degree": null,
   "height": null,
-  "fixed": {"width": null, "angle": null},
-  "span": config.button.wrapper.getElementsByTagName('span')[0],
+  "fixed": {
+    "width": null, 
+    "angle": null
+  },
   "listener": {
     "flag": false,
     "tmp": {"item": {"counter": 0}},
@@ -202,7 +205,3 @@ var touch = {
     }
   }
 };
-
-config.button.wrapper.addEventListener('touchend', touch.listener.end);
-config.button.wrapper.addEventListener('touchmove', touch.listener.move);
-config.button.wrapper.addEventListener('touchstart', touch.listener.start);
