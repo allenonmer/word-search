@@ -24,7 +24,9 @@ var background = {
           "method": id,
           "data": data,
           "path": "interface-to-background"
-        }); 
+        }, function () {
+          return chrome.runtime.lastError;
+        });
       }
     }
   },
@@ -42,7 +44,7 @@ var background = {
   },
   "listener": function (e) {
     if (e) {
-      for (var id in background.message) {
+      for (let id in background.message) {
         if (background.message[id]) {
           if ((typeof background.message[id]) === "function") {
             if (e.path === "background-to-interface") {
@@ -145,13 +147,13 @@ var config = {
   "query": {
     "category": function (e) {
       switch (e) {
-        case '0': return 'animals';
-        case '1': return 'cars';
-        case '2': return 'countries';
-        case '3': return 'foods';
-        case '4': return 'home';
-        case '5': return 'computer';
-        case '6': return 'sports';
+        case '0': return "animals";
+        case '1': return "cars";
+        case '2': return "countries";
+        case '3': return "foods";
+        case '4': return "home";
+        case '5': return "computer";
+        case '6': return "sports";
       }
     }
   },
@@ -175,7 +177,7 @@ var config = {
       if (config.port.name === "win") {
         if (config.resize.timeout) window.clearTimeout(config.resize.timeout);
         config.resize.timeout = window.setTimeout(async function () {
-          var current = await chrome.windows.getCurrent();
+          const current = await chrome.windows.getCurrent();
           /*  */
           config.storage.write("interface.size", {
             "top": current.top,
@@ -191,7 +193,7 @@ var config = {
     "name": '',
     "connect": function () {
       config.port.name = "webapp";
-      var context = document.documentElement.getAttribute("context");
+      const context = document.documentElement.getAttribute("context");
       /*  */
       if (chrome.runtime) {
         if (chrome.runtime.connect) {
@@ -252,12 +254,12 @@ var config = {
     "word": {
       "list": {
         "side": function () {
-          var words = config.global.engine.selectedwordslist();
-          var aside = config.element.aside.getElementsByTagName('ul')[0];
+          const words = config.global.engine.selectedwordslist();
+          const aside = config.element.aside.getElementsByTagName('ul')[0];
           aside.textContent = '';
           /*  */
-          for (var i = 0; i < words.length; i++) {
-            var li = document.createElement('li');
+          for (let i = 0; i < words.length; i++) {
+            const li = document.createElement('li');
             li.textContent = words[i];
             aside.appendChild(li);
           }
@@ -270,12 +272,12 @@ var config = {
   "check": {
     "completed": {
       "word": function (e) {
-        var list = config.global.engine.selectedwordslist();
+        const list = config.global.engine.selectedwordslist();
         if (list && list.length) {
-          for (var i = 0; i < list.length; i++) {
+          for (let i = 0; i < list.length; i++) {
             if (e === list[i]) {
-              var items = [...document.querySelectorAll("#gridAside ul li")];
-              for (var j = 0; j < items.length; j++) {
+              const items = [...document.querySelectorAll("#gridAside ul li")];
+              for (let j = 0; j < items.length; j++) {
                 if (e === items[j].textContent) {
                   items[j].style.textDecoration = "line-through";
                   items[j].style.color = "red";
@@ -291,21 +293,21 @@ var config = {
     }
   },
   "load": function () {
-    var reload = document.querySelector("#reload");
-    var support = document.querySelector("#support");
-    var donation = document.querySelector("#donation");
+    const reload = document.querySelector("#reload");
+    const support = document.querySelector("#support");
+    const donation = document.querySelector("#donation");
     /*  */
     reload.addEventListener("click", function () {
       document.location.reload();
     });
     /*  */
     support.addEventListener("click", function () {
-      var url = config.addon.homepage();
+      const url = config.addon.homepage();
       chrome.tabs.create({"url": url, "active": true});
     }, false);
     /*  */
     donation.addEventListener("click", function () {
-      var url = config.addon.homepage() + "?reason=support";
+      const url = config.addon.homepage() + "?reason=support";
       chrome.tabs.create({"url": url, "active": true});
     }, false);
     /*  */
@@ -327,7 +329,7 @@ var config = {
     "write": function (id, data) {
       if (id) {
         if (data !== '' && data !== null && data !== undefined) {
-          var tmp = {};
+          let tmp = {};
           tmp[id] = data;
           config.storage.local[id] = data;
           chrome.storage.local.set(tmp, function () {});
@@ -341,10 +343,10 @@ var config = {
   "post": {
     "processing": function (result) {
       if (document.getElementById('marker' + config.marker.counter)) {
-        var current = document.getElementById('marker' + config.marker.counter);
+        const current = document.getElementById('marker' + config.marker.counter);
         if (result !== null) {
-          var items = [...config.element.aside.querySelectorAll('li')];
-          for (var i = 0; i < items.length; i++) {
+          const items = [...config.element.aside.querySelectorAll('li')];
+          for (let i = 0; i < items.length; i++) {
             if (items[i].textContent.toLowerCase() === result.toLowerCase()) {
               current.style.backgroundColor = config.color[config.marker.counter - 1];
               config.global.engine.correctanswer++;
@@ -377,13 +379,13 @@ var config = {
   },
   "initialize": {
     "grid": function () {
-      for (var i = 0; i < 12; i++) {
-        for (var j = 0; j < 12; j++) {
+      for (let i = 0; i < 12; i++) {
+        for (let j = 0; j < 12; j++) {
           document.getElementById('' + i + '&' + j).textContent = '';
         }
       }
       /*  */
-      for (var i = 0; i < config.marker.counter; i++) {
+      for (let i = 0; i < config.marker.counter; i++) {
         if (document.getElementById("marker" + i)) {
           document.getElementById("marker" + i).remove();
         }

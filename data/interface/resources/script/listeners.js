@@ -1,7 +1,7 @@
 var listeners = {
   "return": function () {
-    var targets = document.body.getElementsByTagName("script");
-    var script = targets[targets.length - 1];
+    const targets = document.body.getElementsByTagName("script");
+    const script = targets[targets.length - 1];
     if (script) script.remove();
     /*  */
     config.button.overlay.app.className = "contentWrapper";
@@ -11,15 +11,15 @@ var listeners = {
   "category": function (e) {
     if (e) {
       if (e.target) {
-        var category = e.target.getAttribute("data-category");
+        const category = e.target.getAttribute("data-category");
         if (category) {
-          var name = config.query.category(category);
+          const name = config.query.category(category);
           if (name) {
             config.button.overlay.category.className = "contentWrapper";
             config.button.overlay.app.className += " show";
             config.button.loader.className += " show";
             /*  */
-            var script = document.createElement("script");
+            const script = document.createElement("script");
             script.src = "resources/collection/" + name + ".js";
             /*  */
             script.onload = function () {
@@ -42,14 +42,14 @@ var listeners = {
     }
   },
   "document": function (e) {
-    var command = e.target.getAttribute("data-command");
+    const command = e.target.getAttribute("data-command");
     if (command) {
       switch (command) {
         case "config.button.restart":
           config.restart.game();
         break;
         case "config.button.words":
-          var show = config.element.aside.className === "show";
+          const show = config.element.aside.className === "show";
           config.element.aside.className = show ? "hide" : "show";
         break;
         case "config.button.continue":

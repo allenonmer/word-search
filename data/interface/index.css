@@ -8,9 +8,9 @@ html {
 
 body {
   height: 100%;
-  font-size: 11px;
+  font-size: 13px;
   text-transform: uppercase;
-  font-family: arial,sans-serif;
+  font-family: system-ui, sans-serif;
 }
 
 .contentWrapper {
@@ -47,7 +47,7 @@ body {
 .globalBox {
   width: 100%;
   margin: auto;
-  max-width: 500px;
+  max-width: 600px;
   overflow: hidden;
   background-color: #fff;
   box-shadow: 0 0 5px #828282;
@@ -71,7 +71,7 @@ body {
 }
 
 .globalBox p {
-  color: #555;
+  color: #333;
   padding: 10px;
   border-bottom: 1px solid #eee;
 }
@@ -79,7 +79,7 @@ body {
 .globalTable {
   width: 100%;
   margin: auto;
-  max-width: 500px;
+  max-width: 600px;
 }
 
 .globalTable th {
@@ -134,7 +134,7 @@ body {
   display: flex;
   cursor: pointer;
   overflow: hidden;
-  max-height: 500px;
+  max-height: 600px;
   position: relative;
   touch-action: none;
   flex-direction: column;
@@ -150,9 +150,9 @@ body {
 
 .gridStyle > div > span {
   flex: 1;
-  color: #555;
+  color: #333;
   display: flex;
-  font-size: 14px;
+  font-size: 18px;
   align-items: center;
   font-family: monospace;
   justify-content: center;
@@ -235,12 +235,7 @@ html[context="webapp"] .toolbar {
 }
 
 #bestScoreWrapper #bestScoreBox td span {
-  color: #555;
-}
-
-#bestScoreWrapper #bestScoreBox td span[id*='.label.'] {
-  font-size: 12px;
-  font-family: monospace;
+  color: #333;
 }
 
 #bestScoreWrapper #bestScoreBox td:last-of-type {
@@ -255,7 +250,7 @@ html[context="webapp"] .toolbar {
 #categoryBox {
   color: #fff;
   width: 100%;
-  max-width: 500px;
+  max-width: 600px;
   position: relative;
 }
 
@@ -268,7 +263,7 @@ html[context="webapp"] .toolbar {
   opacity: 0.9;
 }
 
-#categoryBox p> span {
+#categoryBox p > span {
   color: #fff;
   border: none;
   text-align: center;
@@ -287,6 +282,7 @@ html[context="webapp"] .toolbar {
 #categoryBox p:nth-of-type(9) span {background-color: darkred}
 
 #wordSearchWrapper #wordSearchBox footer {
+  gap: 5px;
   height: 52px;
   display: flex;
   padding: 0 5px;
@@ -304,20 +300,23 @@ html[context="webapp"] .toolbar {
 }
 
 #wordSearchWrapper #wordSearchBox footer .actionButton {
+  margin: 0;
   height: 38px;
-  margin: 0 5px;
-  max-width: 120px;
   line-height: 38px;
 }
 
 #wordSearchBox h1 {
   display: flex;
-  font-size: 12px;
+  font-size: 13px;
   margin-bottom: 5px;
   align-items: center;
   flex-flow: row nowrap;
   font-family: monospace;
   justify-content: space-around;
+}
+
+#wordSearchBox h1 span {
+  font-size: 14px;
 }
 
 #wordSearchBox h1 svg {
@@ -350,8 +349,9 @@ html[context="webapp"] .toolbar {
 }
 
 #wordSearchBox .mainInnerBox aside ul {
-  list-style-type: none;
   padding: 0;
+  list-style-type: none;
+  background-color: #555555;
 }
 
 #wordSearchBox .mainInnerBox aside ul li {
@@ -401,18 +401,26 @@ html[context="webapp"] .toolbar {
   };
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .globalBox {
     border-radius: 0;
     box-shadow: none;
   }
+  .gridStyle > div > span {
+    font-size: 14px;
+  }
+  #wordSearchBox h1 span {
+    font-size: 12px;
+  }
   #wordSearchWrapper #wordSearchBox footer .actionButton {
-    margin: 0 1px;
-    font-size: 9px;
+    font-size: 12px;
   }
 }
 
-@media (max-width: 250px) {
+@media (max-width: 300px) {
+  .globalBox p {
+    padding: 5px;
+  }
   .globalBox h1 {
     word-spacing: 0;
   }
@@ -421,6 +429,13 @@ html[context="webapp"] .toolbar {
   }
   #gridWrapper .marker {
     border: solid 3px #fff;
+  }
+  #wordSearchBox .mainInnerBox aside {
+    width: 100px;
+  }
+  #wordSearchBox .mainInnerBox aside ul li {
+    padding: 5px;
+    font-size: 12px;
   }
 }
 
